@@ -4,6 +4,7 @@ import helmet from "helmet";
 import cors from "cors";
 
 import authRoutes from "./routes/auth.route";
+import postRoutes from "./routes/post.route";
 import { connectDB } from "./db";
 
 const app = express();
@@ -32,5 +33,6 @@ if (process.env.NODE_ENV === "production") {
 connectDB();
 
 app.use("/api/auth", authRoutes);
+app.use("/api/posts", postRoutes);
 
 export default app;

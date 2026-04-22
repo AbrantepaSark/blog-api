@@ -5,7 +5,6 @@ import cors from "cors";
 
 import authRoutes from "./routes/auth.route";
 import postRoutes from "./routes/post.route";
-import { connectDB } from "./db";
 
 const app = express();
 app.use(
@@ -28,9 +27,6 @@ if (process.env.NODE_ENV === "development") {
 if (process.env.NODE_ENV === "production") {
   app.use(helmet());
 }
-
-//connect to database
-connectDB();
 
 app.use("/api/auth", authRoutes);
 app.use("/api/posts", postRoutes);
